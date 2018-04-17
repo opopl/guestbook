@@ -1,0 +1,6 @@
+
+[% INCLUDE  header.tt %]
+	<textarea id="print_msg" name="message" cols="30" rows="10">
+		[% msg %]
+	</textarea>
+[% INCLUDE  footer.tt %]

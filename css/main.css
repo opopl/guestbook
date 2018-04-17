@@ -1,0 +1,153 @@
+
+input,textarea {
+	float: right;
+}
+
+textarea {
+	overflow: auto;
+}
+
+textarea {
+	width: 200px;
+	height: 150px;
+}
+
+
+label {
+	float: left;
+	width: 15em; 
+	text-align: left;
+}
+
+div#list_msgs {
+	width: 700px; 
+	height: 500px; 
+}
+
+.error {
+	border      : 1px solid #e1e1e1;
+	border-top  : 1px solid #b0aa9b;
+	border-left : 1px solid #b0aa9b;
+	background  : #ff9582;
+}
+
+.red{
+	color: #ff0000;
+}
+
+table#table_list_msgs {
+	/*border: 1px double;*/
+}
+
+table#table_list_msgs td.col_url {
+	background-color: yellow;
+	color: blue;
+}
+table#table_list_msgs td.col_user {
+	background-color: gray;	
+	color: white;
+}
+table#table_list_msgs td.col_email {
+	background-color: orange;	
+	color: white;
+}
+table#table_list_msgs td.col_id {
+	background-color: white;	
+	color: black;
+}
+
+textarea#print_msg {
+	float: left;
+}
+
+form#form_add_message {
+	width: 400px;
+	height: 550px;
+	position: relative;
+}
+
+a.header_link {
+	padding: 5px;
+}
+
+fieldset {
+	border: 1px solid green;
+	height: 100%;
+	width: 100%;
+}
+
+
+div.input {
+	top   : 2%;
+	position : absolute;
+	height   : 70%;
+	width    : 100%;
+	/*border : double 3px;*/
+}
+
+div.captcha {
+	bottom   : 15%;
+	position : absolute;
+	height   : 15%;
+	width    : 100%;
+}
+
+.input_captcha {
+	bottom   : 0%;
+	position : absolute;
+	height   : 20%;
+	width    : 100%;
+}
+
+div.submit {
+	bottom   : 0%;
+	position : absolute;
+	height   : 1%;
+	width    : 100%;
+}
+
+div.submit input{
+	float: left;
+}
+
+
+div.captcha div.invalid {
+	bottom   : 20%;
+	position : absolute;
+}
+
+div.captcha div.invalid span {
+	top   : 0px;
+	color:red;
+	font-style: bold italic;
+}
+
+div.captcha input {
+	float:right;
+}
+
+#div_msgs_page {
+	width    : 70%;
+	/*position : absolute;*/
+	border : 1px double;
+}
+
+
+div.captcha img {
+	height : 50%;
+	width  : 50%;
+	float  : left;
+	bottom : 0%;
+}
+
+
+
+
+legend {
+  padding    : 0.2em 0.5em;
+  border     : 1px solid green;
+  color      : green;
+  font-size  : 90%;
+  text-align : right;
+}
+

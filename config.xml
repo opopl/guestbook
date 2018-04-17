@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<guestbook>
+	<!--TODO: for administration of the guestbook -->
+	<admin>
+		<user>admin</user>
+		<password>admin</password>
+	</admin>
+	<db>
+		<dbi>
+			<attr key="PrintError" value="1" />
+			<attr key="RaiseError" value="1" />
+			<attr key="mysql_enable_utf8" value="1" />
+			<connect key="user" value="root" />
+			<connect key="database" value="guestbook" />
+			<connect key="password" value=""/>
+			<connect key="host" value="localhost"/>
+			<connect key="dsn" value="DBI:mysql:database=guestbook;host=localhost" />
+		</dbi>
+		<init>
+			<!--sql files to be processed at DB initialization stage,-->
+			<!--defined in GB::Config::init() method-->
+			<read_sql dir="sql">
+				<file> init.sql </file>
+			</read_sql>
+		</init>
+	</db>
+	<layout>
+		<header>
+			<links>
+				<link title="Список сообщений" url="print_messages" />
+				<link title="Добавить сообщение" url="add_message"/>
+			</links>
+		</header>
+		<forms>
+			<add_message>
+				<!--captcha generation configuration-->
+				<!--used module: Authen::Captcha-->
+				<captcha key="img_folder" value="images/captcha/" />
+				<captcha key="data_folder" value="data/captcha/" />
+				<!--number of symbols to be used in CAPTCHA generation-->
+				<captcha key="num_symbols" value="5" />
+				<labels>
+					<label key="user" value="Пользователь:"></label>
+					<label key="email" value="Почта:"></label>
+					<label key="url" value="Страничка:"></label>
+					<label key="msg" value="Сообщение:"></label>
+					<label key="submit" value="Отправить"></label>
+					<label key="legend" value="Добавить сообщение"></label>
+					<label key="captcha" value="Введите цифры с картинки:"></label>
+				</labels>
+				<placeholders>
+					<placeholder key="user" value="Пользователь"></placeholder>
+					<placeholder key="email" value="Почта"></placeholder>
+					<placeholder key="url" value="Страничка"></placeholder>
+				</placeholders>
+			</add_message>
+		</forms>
+	</layout>
+	<routes>
+		<print_messages>
+			<labels>
+				<label key="msgs_page" value="Число сообщений на страницу:"></label>
+			</labels>
+			<!--number of messages to be output on a page-->
+			<msgs_page>30</msgs_page>
+			<!--text width for the msg_head field-->
+			<wrap>30</wrap>
+			<!--columns names used in a DBI 'select' query-->
+			<columns_db>
+				id,msg,user,email,url,time,user_agent,user_ip
+			</columns_db>
+			<!--columns names used for html table rendering -->
+			<columns_html>
+				_checkrow,msg_head,id,user,email,url,time,user_ip
+			</columns_html>
+			<!--header names to be displayed in the output table-->
+			<header_names>
+				<header key="id" value="id" />
+				<header key="user" value="Пользователь" />
+				<header key="email" value="Почта" />
+				<header key="url" value="URL" />
+				<header key="time" value="Добавлено" />
+				<header key="msg_head" value="Сообщение" />
+				<header key="user_ip" value="IP" />
+				<header key="user_agent" value="User-Agent" />
+			</header_names>
+		</print_messages>
+	</routes>
+</guestbook>

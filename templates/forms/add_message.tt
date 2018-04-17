@@ -1,0 +1,50 @@
+
+[% red="<span class='red'>*</span>" %]
+
+<form action="[% base_href %]add_message" method="post" id="form_add_message">	
+	<fieldset>
+		<legend>[% labels.legend %]</legend>
+		<div class="input">
+			<p>
+				<label for="user"> [% labels.user %] [% red %]</label>
+				<input type="text" name="user" value="[% values.user %]" placeholder="[% placeholders.user %]" required >
+				<br>
+			<p>
+				<label for="email"> [% labels.email %] [% red %]</label>
+				<input type="email" name="email" value="[% values.email %]" placeholder="[% placeholders.email %]"required >
+				<br>
+			<p>
+				<label for="url"> [% labels.url %] </label>
+				<input type="url" name="url" placeholder="[% placeholders.url %]" value="[% values.url %]">
+				<br>
+			<p>
+				<label for="msg"> [% labels.msg %] [% red %]</label>
+				<textarea name="msg" rows="10" cols="50" required>[% values.msg %]</textarea>
+				<br>
+		</div>
+		[% IF captcha %]
+		<div class="captcha">
+			<div>
+				<img src="[% captcha.img %]" alt="CAPTCHA"/><br>
+			</div>
+			<div class="input_captcha">
+				<label for="captcha">[% labels.captcha %]</label>
+				<input type="text" name="captcha" required>
+			</div>
+			[% IF captcha_invalid %]
+			<div class="invalid">
+				<span>[% captcha_invalid %]</span>
+			</div>
+			[% END %]
+		</div>
+		[% END %]
+		<div class="submit">
+			<table>
+				<tr>
+					<input type="submit" name="submit" value="[% labels.submit %]">
+				</tr>
+			</table>
+		</div>
+	</fieldset>
+</form>
+

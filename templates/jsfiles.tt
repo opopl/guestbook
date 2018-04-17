@@ -1,0 +1,20 @@
+
+[% jsfiles=[] %]
+[% jsfiles_base=[
+	"jquery-3.3.1.min.js",
+	"datatables.min.js",
+	"jquery.validate.min.js",
+	"jquery.validate.localization/messages_ru.js",
+]
+ %]
+
+[% jsfiles = jsfiles.merge(jsfiles_base) %]
+
+[% IF jsfiles_local %]
+[% jsfiles = jsfiles.merge(jsfiles_local) %]
+[% END %]
+
+[% FOREACH jsfile IN jsfiles %]
+		<script type="text/javascript" charset="utf-8" src="js/[% jsfile %]"></script>
+[% END %]
+

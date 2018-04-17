@@ -1,0 +1,55 @@
+
+[% INCLUDE header.tt %]
+
+	[% IF msgs %]
+	<div id="list_msgs">
+		[% IF msgs_page %]
+		<div id="div_msgs_page">
+			<label for="msgs_page">[% labels.msgs_page %]</label>
+			<input type="text" name="msgs_page" id="msgs_page" value="[% msgs_page %]" />
+		</div>
+		[% END %]
+		<table id="[% table_id %]" cellspacing="1">
+			<!--insert table headers-->
+			[% IF heads %]
+				<thead>
+					[% FOREACH col IN cols %]
+						<th>
+						[% IF col == '_checkrow' %]
+							[% head_id="${table_id}_head" %]
+							<input type='checkbox' value='checked' id="[% head_id %]"></input>
+						[% ELSE %]
+							[% heads.${col} %]
+						[% END %]
+						</th>
+					[% END %]
+				</thead>
+			[% END %]
+			<tbody>
+			[% FOREACH m IN msgs %]
+				[% row_id=m.id %]
+				<tr>
+					[% FOREACH col IN cols %]
+						[% cell=m.${col} %]
+						<td class="col_[% col %]">
+							[% IF col == 'url' %]
+								<a href="[% cell %]">[% cell %]</a>
+							[% ELSIF col == 'email' %]
+								<a href="mailto:[% cell %]">[% cell %]</a>
+							[% ELSIF col == '_checkrow' %]
+								<input type='checkbox' value='checked'></input>
+							[% ELSIF col == 'msg_head' %]
+								<a href="[% base_href %]get_message?id=[% row_id %]">[% cell %]</a>
+							[% ELSE %]
+								[% cell %]
+							[% END %]
+						</td>
+					[% END %]
+				</tr>
+			[% END %]
+			</tbody>
+		</table>
+	</div>
+	[% END %]
+
+[% INCLUDE footer.tt %]

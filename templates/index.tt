@@ -1,0 +1,12 @@
+
+[% INCLUDE header.tt %]
+	
+<div id="form">
+	[% form %]
+</div>
+
+<div id="info_msg" class="info_msg">
+	[% info_msg %]
+</div>
+
+[% INCLUDE footer.tt %]
